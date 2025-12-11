@@ -98,8 +98,10 @@ ServerEvents.tags('item', event => {
     ])
 
     event.add("kubejs:heavy_stuff",
-        ["#forge:storage_blocks/lead", "#minecraft:anvil", "#forge:plates/tungsten", "#forge:plates/osmium"]
+        ["#forge:storage_blocks/lead", "#minecraft:anvil", "#forge:plates/tungsten", "#forge:plates/osmium", "#forge:storage_blocks/bismuth"]
     )
+    event.add("forge:storage_blocks/bismuth", "etcetera:bismuth_block")
+    event.add("forge:storage_blocks", "etcetera:bismuth_block")
 
     event.add("kubejs:refractory_compounds", [
         "#forge:metal_oxide/zirconium",
