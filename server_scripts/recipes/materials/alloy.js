@@ -140,8 +140,6 @@ ServerEvents.recipes(event => {
                     // otherwise check that the ingredient's melting point is less than or equal to the main ingredient's melting point
                     let ingredientMeltingPoint = materials[i]._melting_point
                     let mainIngredientMeltingPoint = materials[mainIngredientName]._melting_point
-                    tell(`${i} has a melting point of ${ingredientMeltingPoint}, while ${mainIngredientName} has a melting point of ${mainIngredientMeltingPoint}. Is ${mainIngredientName} hot enough to melt ${i}? ${ingredientMeltingPoint <= mainIngredientMeltingPoint}`)
-                    tell(``)
 
                     return ingredientMeltingPoint <= mainIngredientMeltingPoint
                 }))
