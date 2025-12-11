@@ -151,6 +151,7 @@ StartupEvents.registry("fluid", event => {
     fluid("seeded_silicon")
         .bucketItem.modelJson(bucket("seeded_silicon"))
     fluid("molten_silicon")
+    fluid("molten_raw_silicon").displayName("Metallurgical Molten Silicon")
 
     fluid("silane_solution", 0x93A39D, TextureType.THICK)
         .displayName("Chlorosilane Mixture")
@@ -224,8 +225,8 @@ StartupEvents.registry("fluid", event => {
     fluid("molten_pipe_bronze", "#FFAA00")
     fluid("molten_brass", "#FFCC33")
 
-    fluid("molten_azure_neodymium", "#010037ff")
-    fluid("molten_scarlet_neodymium", "#370000ff")
+    fluid("molten_azure_neodymium", "#010037")
+    fluid("molten_scarlet_neodymium", "#370000")
 
     fluid("molten_desh", "#FF5733")
     fluid("molten_ostrum", "#33C1FF")

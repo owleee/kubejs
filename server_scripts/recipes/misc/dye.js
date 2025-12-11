@@ -14,6 +14,5 @@ ServerEvents.recipes(recipe => {
             "kubejs:ball_mold",
             `minecraft:${colour}_dye`,
         )).id(`kubejs:bottling/${colour}_dye`)
-
     })
 })

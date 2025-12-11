@@ -26,6 +26,12 @@ const SZ = item => `kubejs:${item}`
 const KJ = item => `kubejs:${item}`
 const tell = (msg) => { Utils.server.tell(msg); return msg }
 
+const DEBUG = true;
+
+const log = (msg) => {
+    if (DEBUG) tell(msg);
+}
+
 const Casing = {
     STEEL: "create:andesite_casing",
     COPPER: "create:copper_casing",

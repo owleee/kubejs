@@ -150,7 +150,7 @@ ServerEvents.tags('item', event => {
         /create:.+_window/
     ])
 
-    event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz"])
+    event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_quartz_dust"])
     event.add("forge:dusts/carbon", ["#forge:dusts/coal_coke"])
 
     event.add("forge:raw_materials/garnierite", IE("raw_nickel"))

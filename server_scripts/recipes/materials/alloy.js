@@ -11,7 +11,7 @@ ServerEvents.recipes(event => {
 
     const deduplicateID = (s, i, io) => {
         if (io.length === 1) return s;
-        if (io[i].id) return `${io[i].id}_${s}`;
+        if (io[i]._id) return `${io[i]._id}_${s}`;
         return `${s}_${i}`
     }
 
@@ -22,14 +22,15 @@ ServerEvents.recipes(event => {
     ]
 
     for (const [materialName, materialSet] of Object.entries(materials)) {
+
         // If the material has no defined ingredients, ignore
         // this doesnt necessarily mean it's not an alloy, just that it doesn't use this automatic alloy system
-        if (!materialSet.ingredients) continue;
+        if (!materialSet._ingredients) continue;
 
         // ingredients can be an ingredients object or an array of ingredients objects
         // if not array, make an array containing only the provided ingredient object
-        let ingredientOptions = materialSet.ingredients
-        if (!Array.isArray(materialSet.ingredients)) ingredientOptions = [materialSet.ingredients]
+        let ingredientOptions = materialSet._ingredients
+        if (!Array.isArray(materialSet._ingredients)) ingredientOptions = [materialSet._ingredients]
 
         ingredientOptions.forEach((ingredients, index) => {
 
@@ -40,7 +41,7 @@ ServerEvents.recipes(event => {
             // iterate over each ingredient
             for (const [ingredient, amount] of Object.entries(ingredients)) {
                 // if it's the result field, ignore
-                if (ignoredEntries.includes(ingredient)) continue;
+                if (ingredient.startsWith("_")) continue;
                 // add ingredient to array
                 recipeIngredients.push({
                     tag: `forge:dusts/${ingredient}`,
@@ -77,15 +78,19 @@ ServerEvents.recipes(event => {
             // arc furnace alloying
             // iterate over each for every permutation of items
             for (const [mainIngredientName, mainIngredientAmount] of Object.entries(ingredients)) {
-                if (ignoredEntries.includes(mainIngredientName)) continue;
+                if (mainIngredientName.startsWith("_")) continue;
 
                 let additives = []
+                let realIngredients = []
                 for (const [extraIngredientName, extraIngredientAmount] of Object.entries(ingredients)) {
-                    if (ignoredEntries.includes(extraIngredientName)) continue;
-                    if (extraIngredientName !== mainIngredientName) additives.push({
-                        base_ingredient: { tag: `forge:ingot_amount/${extraIngredientName}` },
-                        count: extraIngredientAmount
-                    })
+                    if (extraIngredientName.startsWith("_")) continue;
+                    if (extraIngredientName !== mainIngredientName) {
+                        additives.push({
+                            base_ingredient: { tag: `forge:ingot_amount/${extraIngredientName}` },
+                            count: extraIngredientAmount
+                        })
+                        realIngredients.push(extraIngredientName)
+                    }
                 }
 
                 event.custom({
@@ -118,17 +123,43 @@ ServerEvents.recipes(event => {
                     }
                 })
 
+                // skip if "main" ingredient is not a valid material or has no molten form
+                if (!materials[mainIngredientName]) continue;
+                if (!materials[mainIngredientName].molten) continue;
+
+                let isMainIngredientHotEnough = (realIngredients.every(i => {
+                    // if the material isn't registered, assume it can be melted
+                    if (!materials[i]) return true;
+
+                    // if the main ingredient has no set melting point, assume it's hot enough
+                    if (!materials[mainIngredientName]._melting_point) return true;
+
+                    // if this ingredient has no set melting point, assume it can be melted
+                    if (!materials[i]._melting_point) return true;
+
+                    // otherwise check that the ingredient's melting point is less than or equal to the main ingredient's melting point
+                    let ingredientMeltingPoint = materials[i]._melting_point
+                    let mainIngredientMeltingPoint = materials[mainIngredientName]._melting_point
+                    tell(`${i} has a melting point of ${ingredientMeltingPoint}, while ${mainIngredientName} has a melting point of ${mainIngredientMeltingPoint}. Is ${mainIngredientName} hot enough to melt ${i}? ${ingredientMeltingPoint <= mainIngredientMeltingPoint}`)
+                    tell(``)
+
+                    return ingredientMeltingPoint <= mainIngredientMeltingPoint
+                }))
+
+                // if the main (molten) ingredient is not hot enough to melt the others (dust), skip this recipe 
+                if (!isMainIngredientHotEnough) continue;
+
                 event.custom({
-                    "type": "immersiveengineering:mixer",
-                    "energy": 3200,
-                    "fluid": {
-                        "amount": Amount.INGOT * mainIngredientAmount,
-                        "tag": `forge:${mainIngredientName}`
+                    type: "immersiveengineering:mixer",
+                    energy: 3200,
+                    fluid: {
+                        amount: Amount.INGOT * mainIngredientAmount,
+                        tag: `forge:${mainIngredientName}`
                     },
-                    "inputs": mixingIngredients,
-                    "result": {
-                        "amount": Amount.INGOT * total,
-                        "fluid": materialSet.molten
+                    inputs: mixingIngredients,
+                    result: {
+                        amount: Amount.INGOT * total,
+                        fluid: materialSet.molten
                     }
                 }).id(`kubejs:mixing/molten_${deduplicateID(materialName, index, ingredientOptions)}_from_molten_${mainIngredientName}`)
             }

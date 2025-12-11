@@ -1,8 +1,4 @@
-const DEBUG = false;
 
-const log = (msg) => {
-    if (DEBUG) tell(msg);
-}
 
 BlockEvents.rightClicked(event => {
     let { block, item, player, level } = event;

@@ -75,36 +75,36 @@ const materials = {
         _ingredients: [{
             copper: 3,
             tin: 1,
-            id: "normal",
+            _id: "normal",
         }, {
             copper: 5,
             tin: 1,
             bismuth: 1,
-            id: "bismuth",
-            result: 5 + 1 + 2,
+            _id: "bismuth",
+            _result: 5 + 1 + 2,
             _flags: ["-manual_alloy"]
         }, {
             copper: 6,
             tin: 1,
             lead: 1,
             bismuth: 1,
-            id: "lead_bismuth",
-            result: 6 + 2 + 2 + 2,
+            _id: "lead_bismuth",
+            _result: 6 + 2 + 2 + 2,
             _flags: ["-manual_alloy"]
         }, {
             copper: 5,
             zinc: 1,
             bismuth: 1,
-            id: "zinc_bismuth",
-            result: 5 + 1 + 2,
+            _id: "zinc_bismuth",
+            _result: 5 + 1 + 2,
             _flags: ["-manual_alloy"]
         }, {
             copper: 6,
             zinc: 1,
             lead: 1,
             bismuth: 1,
-            id: "zinc_lead_bismuth",
-            result: 6 + 1 + 2 + 2,
+            _id: "zinc_lead_bismuth",
+            _result: 6 + 1 + 2 + 2,
             _flags: ["-manual_alloy"]
         }]
     },
@@ -124,34 +124,34 @@ const materials = {
         _ingredients: [{
             copper: 2,
             zinc: 1,
-            id: "normal"
+            _id: "normal"
         }, {
             copper: 3,
             zinc: 1,
             aluminum: 1,
-            id: "aluminium",
-            result: 3 + 1 + 3, // extra bonus for using alu
+            _id: "aluminium",
+            _result: 3 + 1 + 3, // extra bonus for using alu
             _flags: ["-manual_alloy"]
         }, {
             copper: 3,
             zinc: 1,
             nickel: 1,
-            id: "nickel",
-            result: 3 + 1 + 1, // just padding
+            _id: "nickel",
+            _result: 3 + 1 + 1, // just padding
             _flags: ["-manual_alloy"]
         }, {
             copper: 4,
             zinc: 1,
             raw_silicon: 1,
-            id: "raw_silicon",
-            result: 4 + 1 + 2,
+            _id: "raw_silicon",
+            _result: 4 + 1 + 2,
             _flags: ["-manual_alloy"]
         }, {
             copper: 4,
             zinc: 1,
             silicon: 1,
-            id: "silicon",
-            result: 4 + 1 + 4, // why are you using pure silicon to make brass
+            _id: "silicon",
+            _result: 4 + 1 + 4, // why are you using pure silicon to make brass
             _flags: ["-manual_alloy"]
         }],
         _flags: []
@@ -162,11 +162,11 @@ const materials = {
         _ingredients: [{
             copper: 3,
             desh: 1,
-            id: "copper"
+            _id: "copper"
         }, {
             bronze: 3,
             desh: 1,
-            id: "bronze"
+            _id: "bronze"
         }]
     },
     azure_neodymium: {
@@ -180,7 +180,7 @@ const materials = {
             neodymium: 1,
             iron: 3,
             boron: 1,
-            result: 1,
+            _result: 1,
         }
     },
     scarlet_neodymium: {
@@ -194,7 +194,7 @@ const materials = {
             neodymium: 1,
             iron: 3,
             boron: 1,
-            result: 1,
+            _result: 1,
         }
     },
     desh: {
@@ -294,6 +294,7 @@ const materials = {
         dust: MODS.KJ,
         ingot: MODS.KJ,
         pile: MODS.KJ,
+        molten: MODS.KJ,
         _melting_point: 1414,
         _flags: ["-auto"]
     },

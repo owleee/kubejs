@@ -188,7 +188,6 @@ StartupEvents.registry('item', event => {
     event.create("cracked_eggshell")
     event.create("raw_beef_slices")
     event.create("steak_slices")
-    event.create("steak_slices")
     dust(event, "meat").displayName("Mincemeat")
     dust(event, "spiced_meat").displayName("Spiced Mincemeat")
 
@@ -196,6 +195,10 @@ StartupEvents.registry('item', event => {
     event.create("fried_onions")
     event.create("tomato_slice")
     event.create("green_offcuts")
+
+    event.create("cotton_lint")
+
+    event.create("iridescent_dye").tag("forge:dyes/iridescent").tag("forge:dyes")
 
     ingot(event, "singularity")
     event.create("matter_singularity").texture("kubejs:item/singularity/matter")
