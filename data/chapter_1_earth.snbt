@@ -1,0 +1,863 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chapter_1_earth"
+	group: "099D86C9B18BC78A"
+	icon: "ad_astra:earth_globe"
+	id: "7078F9A1F72D6212"
+	images: [
+		{
+			height: 2.0d
+			image: "ad_astra:textures/environment/earth.png"
+			order: 1
+			rotation: 0.0d
+			width: 2.0d
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -0.85d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -2.55d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -1.7d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -3.4d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -4.25d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -5.1d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -5.95d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -6.8d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -7.65d
+		}
+		{
+			height: 1.0d
+			image: "immersiveengineering:block/conveyor/conveyor"
+			rotation: 180.0d
+			width: 1.0d
+			x: 6.0d
+			y: -8.5d
+		}
+	]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Welcome to the modpack! This pack focuses on steampunk and dieselpunk technology, with a somewhat realistic progression from simple machinery to advanced engineering and interplanetary travel. You’ll start with basic tools and steam power, work your way through increasingly complex systems, and eventually build the technology needed to reach the stars."
+				""
+				"This pack is in very early development. In fact, it has not been released yet. How are you reading this?"
+			]
+			id: "7AFF58C5E2DDC38F"
+			rewards: [
+				{
+					id: "12B2A4AC3E1776E9"
+					item: "supplementaries:confetti_popper"
+					type: "item"
+				}
+				{
+					id: "176EBC028827DD3C"
+					item: "minecraft:bundle"
+					type: "item"
+				}
+			]
+			shape: "none"
+			size: 1.5d
+			subtitle: "I hope you enjoy the pack"
+			tasks: [{
+				id: "1EB5B171A5F381B7"
+				title: "Let's go!"
+				type: "checkmark"
+			}]
+			title: "Welcome!"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7AFF58C5E2DDC38F"]
+			description: [
+				"Flint is a hard, smooth rock useful for primitive tools. It can be found in gravel either by digging through it or by washing it in flowing water,"
+				""
+				"Note: the EMI page showing the washing recipe is bugged and does not show the water, but it does function in-world."
+			]
+			icon: "minecraft:flint"
+			id: "1ADABF248041A543"
+			subtitle: "No more punching trees"
+			tasks: [
+				{
+					id: "64EF697A313AFF4F"
+					item: "minecraft:gravel"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "1250C4042BA4F697"
+					item: "minecraft:flint"
+					type: "item"
+				}
+			]
+			title: "Flint"
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["1ADABF248041A543"]
+			description: ["Flint can be knapped against exposed stone blocks, surface rocks, or another flint in the offhand. By chipping at the stone in a specific way, a crude blade can be fashioned."]
+			id: "4AA62B70CDF5F5C4"
+			subtitle: "Take a knap"
+			tasks: [{
+				id: "61D2C556558C55D7"
+				item: {
+					Count: 1
+					id: "kubejs:knapped_flint"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 0.0d
+			y: -3.0d
+		}
+		{
+			dependencies: [
+				"4AA62B70CDF5F5C4"
+				"7AFF58C5E2DDC38F"
+			]
+			dependency_requirement: "one_completed"
+			description: ["In order to create tools, you need something to bind them together. The easiest tool binding to obtain is straw, from harvesting grass with a piece of knapped flint, although others such as vines or spider string are viable options."]
+			id: "27555C35C63B3D43"
+			min_required_dependencies: 1
+			subtitle: "Tied up"
+			tasks: [{
+				icon: "farmersdelight:straw"
+				id: "6B18B519024F720A"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:primitive_tool_bindings"
+					}
+				}
+				title: "Any tool binding"
+				type: "item"
+			}]
+			title: "Tool Binding"
+			x: -1.5d
+			y: -3.0d
+		}
+		{
+			dependencies: ["7AFF58C5E2DDC38F"]
+			description: ["Twigs can be found strewn about wooded areas or can be harvested from the leaves of trees. They can be broken into sticks, which make for good handles so that your tools don't hurt to use."]
+			icon: "twigs:twig"
+			id: "78B4589CE840CB86"
+			subtitle: "Sticky situation"
+			tasks: [
+				{
+					id: "58C59B75A75E1100"
+					item: "twigs:twig"
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "497E2A3A847EE386"
+					item: "minecraft:stick"
+					type: "item"
+				}
+			]
+			x: 1.5d
+			y: -3.0d
+		}
+		{
+			dependencies: [
+				"27555C35C63B3D43"
+				"78B4589CE840CB86"
+				"4AA62B70CDF5F5C4"
+			]
+			description: ["By fixing a sharpened flint to a stick using a tool binding, you can create your first proper tools."]
+			icon: {
+				Count: 1
+				id: "minecraft:wooden_axe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "3508B6EE07E427F9"
+			shape: "octagon"
+			size: 1.5d
+			subtitle: "Tools that don't mine you back"
+			tasks: [
+				{
+					id: "33F800C451366073"
+					item: {
+						Count: 1
+						id: "minecraft:wooden_axe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "241CF8B49CC5E437"
+					item: {
+						Count: 1
+						id: "minecraft:wooden_pickaxe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Flint Tools"
+			x: 0.0d
+			y: -4.5d
+		}
+		{
+			dependencies: ["3508B6EE07E427F9"]
+			description: ["Using your new Flint Hatchet, you can now harvest wood from trees."]
+			id: "3299398EC450859D"
+			subtitle: "Punching trees, finally"
+			tasks: [{
+				icon: "minecraft:oak_log"
+				id: "049CF4A6C224F8C5"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "minecraft:logs"
+					}
+				}
+				title: "Any log"
+				type: "item"
+			}]
+			title: "Getting Wood"
+			x: 1.5d
+			y: -6.0d
+		}
+		{
+			dependencies: ["3508B6EE07E427F9"]
+			id: "0C2ACA1DF2AC035E"
+			subtitle: "Stone age"
+			tasks: [{
+				icon: "minecraft:cobblestone"
+				id: "607431000F2E716C"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "quark:stone_tool_materials"
+					}
+				}
+				title: "Any stone"
+				type: "item"
+			}]
+			title: "Stone"
+			x: -1.5d
+			y: -6.5d
+		}
+		{
+			dependencies: [
+				"3299398EC450859D"
+				"3518490665ABC1A8"
+				"6C07536A0F59DDA3"
+			]
+			description: [
+				"Using coal from the mines and wood from trees, a campfire can be constructed and lit using a firestarter. It can be used to improve the nutrition of food, create charcoal, and fire bricks."
+				""
+				"Note: coal can be placed on the ground, on top of which logs can be stacked to build the campfire."
+			]
+			id: "480F6B5BEE7D7E9E"
+			subtitle: "Bonfire... lit?"
+			tasks: [{
+				icon: "minecraft:campfire"
+				id: "46D33A4457A9EF42"
+				observe_type: 0
+				timer: 0L
+				title: "Observe a fully constructed campfire"
+				to_observe: "minecraft:campfire"
+				type: "observation"
+			}]
+			x: 0.0d
+			y: -7.5d
+		}
+		{
+			dependencies: ["3508B6EE07E427F9"]
+			description: ["Coal can be found at shallow depths underground. It is a potent fuel source formed from the decomposition of ancient plant matter."]
+			id: "3518490665ABC1A8"
+			subtitle: "Fossil fuels"
+			tasks: [{
+				id: "2F696BCF6051D6AA"
+				item: "minecraft:coal"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["3299398EC450859D"]
+			description: ["The friction generated by rubbing two sticks together can generate enough heat to light a campfire - or almost anything else - on fire."]
+			id: "6C07536A0F59DDA3"
+			subtitle: "A twisted firestarter"
+			tasks: [{
+				id: "6BC474D598A7434D"
+				item: {
+					Count: 1
+					id: "survival_firesticks:firestick"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Firestarter"
+			x: 1.5d
+			y: -7.5d
+		}
+		{
+			dependencies: ["480F6B5BEE7D7E9E"]
+			description: [
+				"By mixing sand, clay, and flint, you can create fireclay, a special type of clay that can withstand incredibly high temperatures. Before it can be used, it needs to be cooked on a campfire."
+				""
+				"You'll need 48 to create a full bloomery, so maybe make multiple campfires."
+			]
+			icon: "immersivegeology:refractory_brick"
+			id: "41292B290CEE43F2"
+			subtitle: "Refractory ceramics"
+			tasks: [
+				{
+					id: "192160C5529C65A9"
+					item: "immersivegeology:raw_fire_clay"
+					type: "item"
+				}
+				{
+					id: "1AA6DDA22C5EDB79"
+					item: "immersivegeology:refractory_brick"
+					type: "item"
+				}
+			]
+			title: "Firebricks"
+			x: 0.0d
+			y: -9.0d
+		}
+		{
+			dependencies: [
+				"480F6B5BEE7D7E9E"
+				"3299398EC450859D"
+			]
+			description: ["By cooking logs on a campfire, you can create charcoal, an equally effective substitute for coal. Useful if you're scared of the caves."]
+			id: "5CE79D52183C2512"
+			optional: true
+			subtitle: "Knockoff coal"
+			tasks: [{
+				id: "736FE61E96A5C8D6"
+				item: "minecraft:charcoal"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -9.0d
+		}
+		{
+			dependencies: [
+				"41292B290CEE43F2"
+				"122618E63DA31625"
+			]
+			description: [
+				"The bloomery is a small multiblock made from firebricks that can sustain the temperatures needed to smelt basic metals."
+				""
+				"&oNote: the bloomery only accepts a small variety of fuel items. I am working on expanding this within reason.&r"
+			]
+			icon: "immersivegeology:bloomery"
+			id: "477323BA079C24F7"
+			shape: "octagon"
+			size: 1.5d
+			subtitle: "Bloomin' 'eck"
+			tasks: [
+				{
+					count: 12L
+					id: "7DA9C9231A6296F4"
+					item: "immersivegeology:storage_block_refractory_brick"
+					type: "item"
+				}
+				{
+					icon: "immersivegeology:bloomery"
+					id: "22A45D60AADB52FA"
+					observe_type: 0
+					timer: 0L
+					title: "Observe a formed Bloomery"
+					to_observe: "immersivegeology:bloomery"
+					type: "observation"
+				}
+			]
+			title: "Bloomery"
+			x: 0.0d
+			y: -10.5d
+		}
+		{
+			dependencies: ["0C2ACA1DF2AC035E"]
+			description: ["Rocks are heavy. If you tie one to the end of a long stick, you can hit things quite hard. This tool can be used to form simple multiblocks and to crush and work resources."]
+			id: "122618E63DA31625"
+			subtitle: "Hammer down!"
+			tasks: [{
+				id: "2B3218A1FFB7CF3A"
+				item: {
+					Count: 1
+					id: "immersivegeology:hammer_stone"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: -1.5d
+			y: -9.0d
+		}
+		{
+			dependencies: [
+				"477323BA079C24F7"
+				"665E4EFD9A2A7202"
+			]
+			description: ["By crushing copper ore with a hammer and roasting it in the bloomery, you can create a porous mass of metal and slag called a bloom. "]
+			id: "3FBDD5FF1BD62BFE"
+			subtitle: "Almost an ingot"
+			tasks: [{
+				id: "13FF71670E072E79"
+				item: "kubejs:copper_bloom"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -12.0d
+		}
+		{
+			dependencies: ["3FBDD5FF1BD62BFE"]
+			description: ["With just a little more processing, you can finally get your greedy little hands on a shiny copper ingot, a versatile metal with many uses."]
+			id: "718C0FB08342F7DC"
+			subtitle: "The metal from Cyprus"
+			tasks: [{
+				id: "282DC5890BA4339F"
+				item: "minecraft:copper_ingot"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -13.5d
+		}
+		{
+			dependencies: ["3299398EC450859D"]
+			description: ["A sturdy wooden board provides a great place to work items. This block has a wide variety of uses, including crushing ores, flattening ingots, chopping food and many more."]
+			id: "665E4EFD9A2A7202"
+			shape: "octagon"
+			subtitle: "Not just a cutting board"
+			tasks: [{
+				id: "490C6A87245D0FE9"
+				item: "farmersdelight:cutting_board"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -10.5d
+		}
+		{
+			dependencies: ["3508B6EE07E427F9"]
+			description: [
+				"Additionally, a few other tools can be constructed from your basic resources:"
+				""
+				"The Flint Knife can be used to gather straw and harvest extra food from animals, without hurting you when used."
+				""
+				"The Flint Shears can be used to gather extra sticks from leaves and can shear the wool from sheep."
+				""
+				"The Flint Hammer \\& Chisel can be used to mine blocks such as stone without damaging them."
+			]
+			icon: {
+				Count: 1
+				id: "farmersdelight:flint_knife"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "78E7197FBE70FF63"
+			optional: true
+			subtitle: "DLC"
+			tasks: [
+				{
+					id: "6521E345D7DEC064"
+					item: {
+						Count: 1
+						id: "farmersdelight:flint_knife"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "2C0B5DE4120F2C6F"
+					item: {
+						Count: 1
+						id: "kubejs:flint_shears"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "62F1F249B8DCD845"
+					item: {
+						Count: 1
+						id: "spelunkery:flint_hammer_and_chisel"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Bonus Flint Tools"
+			x: -1.5d
+			y: -4.5d
+		}
+		{
+			dependencies: ["122618E63DA31625"]
+			description: ["By furnishing a stripped log with leather or canvas, and supplying it with tools necessary for more complicated crafting, you can finally make a crafting table. This gives access to a vast range of crafting recipes, but most importantly a cheaper crafting table. (TODO)"]
+			id: "28CAFE041DFFB17B"
+			shape: "octagon"
+			subtitle: "Took you long enough"
+			tasks: [{
+				icon: "minecraft:crafting_table"
+				id: "4554B5E5D49AB0EE"
+				observe_type: 0
+				timer: 0L
+				title: "Construct a crafting table"
+				to_observe: "minecraft:crafting_table"
+				type: "observation"
+			}]
+			title: "Crafting Table"
+			x: -1.5d
+			y: -10.5d
+		}
+		{
+			dependencies: ["3508B6EE07E427F9"]
+			description: ["The Flint Saw is a crude cutting tool useful for processing wood. By using it to break logs, planks can be obtained, and from them, sticks."]
+			id: "25B064450B932708"
+			subtitle: "I came, I saw"
+			tasks: [{
+				id: "14C535B1784EEFA1"
+				item: {
+					Count: 1
+					id: "kubejs:flint_saw"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 1.5d
+			y: -4.5d
+		}
+		{
+			dependencies: [
+				"3299398EC450859D"
+				"25B064450B932708"
+			]
+			id: "3B43B01CAC9170A9"
+			tasks: [{
+				icon: "minecraft:oak_planks"
+				id: "14DE561BC45BA89F"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "minecraft:planks"
+					}
+				}
+				title: "Any planks"
+				type: "item"
+			}]
+			title: "Wooden Planks"
+			x: 3.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["3B43B01CAC9170A9"]
+			description: [
+				"Flint doesn't make for a very good shovel. However, a wide, sturdy wooden slab tied to a stick will make quick work of any sediment you may want to dig up. This may come in handy for a "
+				"{ \"text\": \"particular upcoming quest...\", \"underlined\": \"true\", \"clickEvent\": { \"action\": \"change_page\", \"value\": \"41292B290CEE43F2\" } }"
+			]
+			id: "73BB00469ABF789C"
+			subtitle: "See, not everything is flint"
+			tasks: [{
+				id: "689E68F659BCB9CC"
+				item: {
+					Count: 1
+					id: "minecraft:wooden_shovel"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 3.0d
+			y: -7.5d
+		}
+		{
+			dependencies: ["3FBDD5FF1BD62BFE"]
+			description: ["Slag may seem like an annoying byproduct, but it actually has many important uses, including in fertiliser, electrical insulators, and building blocks. You might want to hold on to it for these purposes."]
+			id: "3858B8CDD91AA574"
+			subtitle: "Waste not, want not"
+			tasks: [{
+				id: "305EE4B6F403CB50"
+				item: "immersiveengineering:slag"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -12.0d
+		}
+		{
+			dependencies: ["718C0FB08342F7DC"]
+			description: ["Congratulations on your first set of metal tools. With these, you can mine further, faster and deeper, and more importantly mine iron ore."]
+			icon: {
+				Count: 1
+				id: "minecraft:stone_pickaxe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "75B20B7A9A5C62C2"
+			subtitle: "Welcome to the Eneolithic"
+			tasks: [
+				{
+					id: "3C470E33C8CE55FD"
+					item: {
+						Count: 1
+						id: "minecraft:stone_axe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6B69ADB9180F6FF7"
+					item: {
+						Count: 1
+						id: "minecraft:stone_pickaxe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Copper Tools"
+			x: 0.0d
+			y: -15.0d
+		}
+		{
+			dependencies: ["7AFF58C5E2DDC38F"]
+			description: ["This pack renames many items via the lang files. Unfortunately, this limits the pack to British English (en_gb) and American English (en_us). For the best experience, please make sure your language is set to one of the two."]
+			icon: {
+				Count: 1
+				id: "ftbquests:custom_icon"
+				tag: {
+					Icon: "kubejs:textures/lang.png"
+				}
+			}
+			id: "24F27E9C1A7A0C4E"
+			shape: "none"
+			size: 1.0d
+			tasks: [{
+				id: "18C4832880BB42B4"
+				title: "Okay"
+				type: "checkmark"
+			}]
+			title: "Languages"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"28CAFE041DFFB17B"
+				"0C2ACA1DF2AC035E"
+			]
+			description: ["A crude furnace can be constructed from cobblestone. It can cook food and bricks, and can smelt dusts back into ingots, but it cannot reach the temperatures necessary to refine metals from their ores."]
+			id: "63FCAEE804C78F78"
+			subtitle: "Demoted"
+			tasks: [{
+				id: "479EDB79547E6036"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -13.5d
+		}
+		{
+			dependencies: ["75B20B7A9A5C62C2"]
+			icon: "minecraft:iron_ingot"
+			id: "05C58099FF6E7883"
+			tasks: [
+				{
+					id: "1A9DC01B1393C49A"
+					item: "kubejs:iron_bloom"
+					type: "item"
+				}
+				{
+					id: "38CBFE0299778FE1"
+					item: "minecraft:iron_ingot"
+					type: "item"
+				}
+			]
+			title: "Iron Ingot"
+			x: 0.0d
+			y: -16.5d
+		}
+		{
+			dependencies: ["05C58099FF6E7883"]
+			icon: {
+				Count: 1
+				id: "minecraft:iron_pickaxe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "2CFE2DAAAEAB581A"
+			tasks: [
+				{
+					id: "05728887809CB33D"
+					item: {
+						Count: 1
+						id: "minecraft:iron_axe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "121278ADF3E96F8B"
+					item: {
+						Count: 1
+						id: "minecraft:iron_pickaxe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Iron Tools"
+			x: 0.0d
+			y: -18.0d
+		}
+		{
+			dependencies: [
+				"521CD89C84ECB4F2"
+				"05C58099FF6E7883"
+			]
+			id: "214D5696CB369382"
+			tasks: [{
+				id: "6FD844332BDA1085"
+				item: "immersiveengineering:ingot_steel"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -16.5d
+		}
+		{
+			dependencies: ["257070CE7FEF2D90"]
+			id: "521CD89C84ECB4F2"
+			subtitle: "Doesn't explode, I promise"
+			tasks: [{
+				icon: "immersiveengineering:blast_furnace"
+				id: "0D0F0CFDCB1A3FDD"
+				observe_type: 0
+				timer: 0L
+				title: "Crude Blast Furnace"
+				to_observe: "immersiveengineering:blast_furnace"
+				type: "observation"
+			}]
+			x: 1.5d
+			y: -15.0d
+		}
+		{
+			dependencies: ["477323BA079C24F7"]
+			hide_dependency_lines: true
+			id: "257070CE7FEF2D90"
+			subtitle: "More fancy bricks"
+			tasks: [{
+				count: 27L
+				id: "7BA71B39A9A5FCDD"
+				item: { Count: 27, id: "immersiveengineering:blastbrick" }
+				type: "item"
+			}]
+			title: "Blast Bricks"
+			x: 1.5d
+			y: -13.5d
+		}
+	]
+	title: "Chapter 0: Earth"
+}

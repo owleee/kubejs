@@ -1,0 +1,26 @@
+{
+    "colors": {
+        "accent": "#EBC542",
+        "base": "#606060"
+    },
+    "display": {
+        "scale": 0.25
+    },
+    "effects": {
+        "sound": {
+            "id": "minecraft:entity.bee.pollinate"
+        }
+    },
+    "entity": {
+        "id": "minecraft:bee"
+    },
+    "name": {
+        "color": "#EBC542",
+        "translate": "trophy.trofers.composed",
+        "with": [
+            {
+                "translate": "entity.minecraft.bee"
+            }
+        ]
+    }
+}

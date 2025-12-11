@@ -1,0 +1,9 @@
+{
+    "material.immersivegeology.reinforced_refractory_brick": "Reinforced Firebrick",
+    "material.immersivegeology.refractory_brick": "Firebrick",
+    "item.immersivegeology.dirty_crushed_ore": "Dirty Crushed %s",
+    "item.immersivegeology.crushed_ore": "Crushed %s",
+    "item.immersivegeology.compound_dust": "%s Compound",
+    "item.immersivegeology.grit": "%s Dust",
+    "material.immersivegeology.high_speed_steel": "High-Speed Steel"
+}

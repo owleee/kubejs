@@ -1,0 +1,12 @@
+{
+    "block.createdieselgenerators.bulk_fermenter": "Bulk Vat",
+    "createdieselgenerators.recipe.bulk_fermenting": "Bulk Vat",
+    "createdieselgenerators.recipe.wire_cutting": "Knitting",
+    "item.createdieselgenerators.wire_cutters": "Knitting Needles",
+    "item.createdieselgenerators.wire_cutters.tooltip.summary": "Can be used to _knit_ yarn.",
+    "item.createdieselgenerators.wire_cutters.tooltip.behaviour1": "Knits items held in the _offhand_.",
+    "fluid.createdieselgenerators.light_blue_cement": "Light Blue Concrete",
+    "fluid.createdieselgenerators.light_gray_cement": "Light Gray Concrete",
+    "item.createdieselgenerators.light_blue_cement_bucket": "Light Blue Concrete Bucket",
+    "item.createdieselgenerators.light_gray_cement_bucket": "Light Gray Concrete Bucket"
+}

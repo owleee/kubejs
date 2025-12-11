@@ -1,0 +1,14 @@
+{
+    "block.ad_astra.raw_desh_block": "Block of Raw Armstrongite",
+    "item.ad_astra.raw_desh": "Raw Armstrongite",
+    "block.ad_astra.deepslate_desh_ore": "Deepslate Armstrongite",
+    "block.ad_astra.moon_desh_ore": "Lunar Armstrongite",
+    "block.ad_astra.deepslate_ostrum_ore": "Deepslate Watneyite",
+    "block.ad_astra.mars_ostrum_ore": "Martian Watneyite",
+    "block.ad_astra.raw_ostrum_block": "Block of Raw Watneyite",
+    "item.ad_astra.raw_ostrum": "Raw Watneyite",
+    "block.ad_astra.deepslate_calorite_ore": "Deepslate Venerite",
+    "block.ad_astra.raw_calorite_block": "Block of Raw Venerite",
+    "block.ad_astra.venus_calorite_ore": "Venusian Venerite",
+    "item.ad_astra.raw_calorite": "Raw Venerite"
+}
