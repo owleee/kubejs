@@ -198,6 +198,10 @@ StartupEvents.registry('item', event => {
 
     event.create("cotton_lint")
 
+    event.create("basic_integrated_circuit")
+    event.create("advanced_integrated_circuit")
+    event.create("elite_integrated_circuit")
+
     event.create("iridescent_dye").tag("forge:dyes/iridescent").tag("forge:dyes")
 
     ingot(event, "singularity")

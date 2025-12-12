@@ -1,30 +1,43 @@
 StartupEvents.registry('block', event => {
-    event.create("ballmill_block");
+    event.create("ballmill_block").soundType("metal");
     event.create("sealed_casing");
 
-    event.create("kiln_barrel")
-    event.create("crusher_casing")
-    event.create("seperator_column")
-    event.create("electrolytic_coil")
+    event.create("kiln_barrel").soundType("metal")
+    event.create("crusher_casing").soundType("metal")
+    event.create("separator_column").soundType("metal")
+    event.create("electrolytic_coil").soundType("metal")
         .box(0, 0, 0, 16, 8, 16)
         .box(3, 8, 3, 13, 9, 13)
         .box(4, 9, 4, 12, 16, 12)
         .defaultCutout();
-    event.create("reaction_vessel")
-    event.create("pressurised_reaction_vessel")
-    event.create("arc_crucible")
-    event.create("mixer_casing")
-    event.create("centrifugal_chamber")
+    event.create("reaction_vessel").glassSoundType()
+    event.create("pressurised_reaction_vessel").glassSoundType()
+    event.create("arc_crucible").soundType("metal")
+    event.create("mixer_casing").soundType("metal")
+    event.create("centrifugal_chamber").soundType("metal")
 
     event.create("lv_motor_casing").displayName("Low-Voltage Motor Casing")
     event.create("mv_motor_casing").displayName("Medium-Voltage Motor Casing")
     event.create("hv_motor_casing").displayName("High-Voltage Motor Casing");
 
-    event.create("copper_fins");
+    event.create("copper_fins").soundType("copper");
 
+    [
+        "lunar",
+        "martian",
+        "venusian",
+        "mercurial",
+        "jovian",
+        "asteroidal",
+        "solar",
+        "glacian"
+    ].forEach(planet => {
+        event.create(`${planet}_stargate_ring`).soundType("lodestone")
+    });
+    event.create("seafloor_nodule").soundType("tuff").defaultCutout().box(4, 0, 4, 12, 8, 12);
 
-    event.create("quartz_glass").defaultCutout();
-    event.create("borosilicate_glass").defaultCutout();
+    event.create("quartz_glass").defaultCutout().glassSoundType();
+    event.create("borosilicate_glass").defaultCutout().glassSoundType();
 
     [
         "minecraft:acacia", // latex
@@ -53,7 +66,7 @@ StartupEvents.registry('block', event => {
             .texture("down", `${wood.namespace}:block/${path}_top`)
     })
 
-    event.create("heavy_duty_shaft")
+    event.create("heavy_duty_shaft").soundType("metal")
         .hardness(2)
         .property(BlockProperties.AXIS)
         .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))

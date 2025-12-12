@@ -9,7 +9,6 @@ ServerEvents.tags('item', event => {
         "#kubejs:advanced_tool_bindings"
     ])
     event.add("kubejs:primitive_tool_bindings", [
-        "#kubejs:basic_tool_bindings",
         IE("hemp_fiber"),
         FD("straw"),
         MC("vine"),
@@ -21,6 +20,7 @@ ServerEvents.tags('item', event => {
         MOBS("elastic_tendon"),
         CAVES("licoroot_vine"),
         "spelunkery:tangle_roots",
+        "#kubejs:basic_tool_bindings",
     ])
 
     event.add("kubejs:stitching", [
