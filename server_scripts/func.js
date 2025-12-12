@@ -280,6 +280,23 @@ const mixing = (inputs, outputs, heatRequirement) => {
     }
 }
 
+const working = (input, tool, outputs) => {
+    return {
+        type: "farmersdelight:cutting",
+        ingredients: [item(input)],
+        result: parseItemList(outputs),
+        tool: item(tool)
+    }
+}
+
+const board_cutting = (input, outputs) => {
+    return working(input, "#forge:tools/knives", outputs)
+}
+
+const board_chopping = (input, outputs) => {
+    return working(input, "#forge:tools/axes", outputs)
+}
+
 const application = (baseBlock, appliedItem, output) => {
     return {
         type: "create:item_application",

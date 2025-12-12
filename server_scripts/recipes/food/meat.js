@@ -10,7 +10,7 @@ ServerEvents.recipes(recipe => {
 
     recipe.shapeless("2x kubejs:spiced_meat_dust", [
         "#forge:dusts/meat",
-        "kubejs:chopped_onions"
+        "#kubejs:onions"
     ]).id("kubejs:spiced_mincemeat_with_onions")
 
     recipe.custom(pressing("#forge:dusts/meat", "farmersdelight:minced_beef"))

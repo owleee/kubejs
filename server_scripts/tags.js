@@ -23,6 +23,16 @@ ServerEvents.tags('item', event => {
         "#kubejs:basic_tool_bindings",
     ])
 
+    event.add("kubejs:onions", [
+        "kubejs:chopped_onions",
+        "kubejs:fried_onions"
+    ])
+
+    event.add("prepared_vegetables", [
+        "#kubejs:onions",
+        "minecraft:carrot"
+    ])
+
     event.add("kubejs:stitching", [
         KJ("leather_binding"),
         MC("string")
