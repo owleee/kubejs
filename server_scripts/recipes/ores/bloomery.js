@@ -35,7 +35,7 @@ ServerEvents.recipes(event => {
             ingredients: [{ item: `kubejs:${m}_bloom` }],
             result: [
                 { item: materials[m].ingot, chance: 0.9 },
-                { item: materials[m].dust, chance: 0.1 },
+                { item: materials[m].dust, chance: 0.05 },
                 { item: IE("slag"), chance: 0.5 },
             ],
             tool: { tag: "forge:hammer" }

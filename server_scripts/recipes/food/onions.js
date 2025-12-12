@@ -8,6 +8,9 @@ ServerEvents.recipes(recipe => {
     recipe.smoking("kubejs:fried_onions", "kubejs:chopped_onions").xp(0.25).id("kubejs:smoking/onions")
     recipe.campfireCooking("kubejs:fried_onions", "kubejs:chopped_onions").xp(0.25).cookingTime(30 * 20).id("kubejs:campfire/onions");
 
+    //recipe.replaceInput("farmersdelight:cooking/ratatouille", "farmersdelight:onion", "#kubejs:onions");
+
+    return;
 
     [// crafting recipes - require cooked onions
         "farmersdelight:hamburger",
@@ -35,8 +38,8 @@ ServerEvents.recipes(recipe => {
         "farmersdelight:cooking/stuffed_pumpkin_block",
         "farmersdelight:cooking/fish_stew",
     ].forEach(recipeID => {
-        recipe.replaceInput(recipeID, "#forge:vegetables/onion", "#kubejs:onions")
+        recipe.replaceInput(recipeID, "farmersdelight:onion", "#kubejs:onions")
     })
 
-    recipe.replaceInput({ type: "farmersdelight:cooking" }, "#forge:vegetables", "#kubejs:prepared_vegetables")
+    ///recipe.replaceInput({ type: "farmersdelight:cooking" }, "#forge:vegetables", "#kubejs:prepared_vegetables")
 })

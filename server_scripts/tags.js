@@ -28,7 +28,7 @@ ServerEvents.tags('item', event => {
         "kubejs:fried_onions"
     ])
 
-    event.add("prepared_vegetables", [
+    event.add("kubejs:prepared_vegetables", [
         "#kubejs:onions",
         "minecraft:carrot"
     ])
