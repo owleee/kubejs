@@ -1,8 +1,26 @@
+const logTypeBlockstateVariants = (modelPath) => {
+    return {
+        variants: {
+            "axis=x": {
+                "model": modelPath,
+                "x": 90,
+                "y": 90
+            },
+            "axis=y": {
+                "model": modelPath
+            },
+            "axis=z": {
+                "model": modelPath,
+                "x": 90
+            }
+        }
+    }
+}
+
 StartupEvents.registry('block', event => {
     event.create("ballmill_block").soundType("metal");
     event.create("sealed_casing");
 
-    event.create("kiln_barrel").soundType("metal")
     event.create("crusher_casing").soundType("metal")
     event.create("separator_column").soundType("metal")
     event.create("electrolytic_coil").soundType("metal")
@@ -67,28 +85,19 @@ StartupEvents.registry('block', event => {
     })
 
     event.create("heavy_duty_shaft").soundType("metal")
-        .hardness(2)
         .property(BlockProperties.AXIS)
         .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
         .model('kubejs:block/heavy_duty_shaft')
         .displayName("Heavy-Duty Shaft")
         .defaultCutout()
-        .blockstateJson = {
-        variants: {
-            "axis=x": {
-                "model": "kubejs:block/heavy_duty_shaft",
-                "x": 90,
-                "y": 90
-            },
-            "axis=y": {
-                "model": "kubejs:block/heavy_duty_shaft"
-            },
-            "axis=z": {
-                "model": "kubejs:block/heavy_duty_shaft",
-                "x": 90
-            }
-        }
-    }
+        .blockstateJson = logTypeBlockstateVariants('kubejs:block/heavy_duty_shaft')
+
+    event.create("kiln_barrel").soundType("metal")
+        .property(BlockProperties.AXIS)
+        .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
+        .model('kubejs:block/kiln_barrel')
+        .defaultCutout()
+        .blockstateJson = logTypeBlockstateVariants('kubejs:block/kiln_barrel')
 })
 
 BlockEvents.modification(event => {

@@ -351,8 +351,26 @@ const filling = (inputItem, inputFluid, outputItems) => {
         type: "create:filling",
         ingredients: [
             item(inputItem),
-            item(inputFluid)
+            item(inputFluid, true)
         ], results: parseItemList(outputItems)
+    }
+}
+
+/**
+ * Helper function that generates a Create Deploying recipe object.
+ * @param {*} inputItem 
+ * @param {*} deployedItem 
+ * @param {*} outputItems 
+ * @returns Create Deploying recipe object to be used in ServerEvents.recipes().
+ */
+const deploying = (inputItem, deployedItem, outputItems) => {
+    return {
+        type: "create:deploying",
+        ingredients: [
+            item(inputItem),
+            item(deployedItem)
+        ],
+        results: parseItemList(outputItems)
     }
 }
 

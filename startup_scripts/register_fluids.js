@@ -266,4 +266,6 @@ StartupEvents.registry("fluid", event => {
     fluid("blue_source", "#1E90FF")
     fluid("green_source", "#32CD32")
     fluid("purple_source", "#800080")
+
+    fluid("glue", "#D4E2E5", TextureType.THICK)
 });

@@ -16,17 +16,17 @@ ServerEvents.recipes(event => {
     event.custom(mixer(
         "500mB #forge:concrete",
         "#kubejs:refractory_compounds",
-        "8i kubejs:refractory_ceramic"
+        "512mB kubejs:refractory_ceramic"
     )).id("kubejs:mixer/refractory_ceramic")
 
     event.custom(bottling_machine_casting(
-        "64mB kubejs:refractory_ceramic",
+        "32mB kubejs:refractory_ceramic",
         "kubejs:ingot_mold",
         "immersivegeology:refractory_brick"
     )).id("kubejs:bottling/refractory_brick")
 
     event.custom(compacting(
-        "64mB kubejs:refractory_ceramic",
+        "32mB kubejs:refractory_ceramic",
         "immersivegeology:refractory_brick"
     )).id("kubejs:compacting/refractory_brick")
 
@@ -35,4 +35,6 @@ ServerEvents.recipes(event => {
         ["BB"],
         { B: "immersivegeology:refractory_brick" }
     ).id("immersivegeology:crafting/slab_refractory_brick")
+
+    event.replaceInput("immersiveengineering:crafting/blastbrick", "minecraft:magma_block", "immersivegeology:storage_block_refractory_brick")
 })

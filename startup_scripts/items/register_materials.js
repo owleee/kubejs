@@ -15,6 +15,8 @@ StartupEvents.registry('item', event => {
     materialSet("mangalloy")
     materialSet("high_brass")
     materialSet("pipe_bronze");
+    materialSet("nichrome")
+    materialSet("kanthal")
 
     ingot(event, "purple_gold")
     dust(event, "purple_gold")
@@ -22,8 +24,19 @@ StartupEvents.registry('item', event => {
     ingot(event, "metallic_hydrogen")
     plate(event, "metallic_hydrogen");
 
-    // DUSTS //
+
     let _ = [
+        "molybdenum",
+        "nichrome",
+        "kanthal",
+    ].forEach(i => {
+        event.create(`${i}_wire`)
+            .texture(`kubejs:item/wire/${i}`)
+            .tag("forge:wires").tag(`forge:wires/${i}`)
+    });
+
+    // DUSTS //
+    _ = [
         "quartz", "copper", "iron", "zinc", "tin", "nickel", "steel", "brass", "gold", "glowstone",
         "ash", "kelp_ash", "silicon", "silica", "raw_silicon", "graphite", "constantan", "neodymium",
         "manganese", "chromium", "high_speed_steel", "sodium", "magnesium", "lead", "uranium", "enriched_uranium"

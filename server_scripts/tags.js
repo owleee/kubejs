@@ -115,7 +115,9 @@ ServerEvents.tags('item', event => {
 
     event.add("kubejs:refractory_compounds", [
         "#forge:metal_oxide/zirconium",
-        "#forge:metal_oxide/aluminum"
+        "#forge:metal_oxide/aluminum",
+        "#forge:powders/alumina",
+        "#forge:grits/alumina",
     ])
 
     event.add("forge:dusts/sodium_carbonate", "kubejs:soda_ash_dust")
@@ -162,7 +164,7 @@ ServerEvents.tags('item', event => {
         /create:.+_window/
     ])
 
-    event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_quartz_dust"])
+    event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_flint_dust"])
     event.add("forge:dusts/carbon", ["#forge:dusts/coal_coke"])
 
     event.add("forge:raw_materials/garnierite", IE("raw_nickel"))
@@ -202,7 +204,8 @@ ServerEvents.tags('item', event => {
         IE("sample_drill"),
         IE("cloche"),
         "create_new_age:generator_coil",
-        /create_wells:.+_mechanical_well/
+        /create_wells:.+_mechanical_well/,
+        /kubejs:.*kiln_barrel/
     ])
 
     event.add("kubejs:stone_slabs", [

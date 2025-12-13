@@ -198,6 +198,9 @@ StartupEvents.registry('item', event => {
 
     event.create("cotton_lint")
 
+    event.create("incomplete_kiln_barrel", SEQUENCED_ASSEMBLY)
+    event.create("unplated_kiln_barrel")
+
     event.create("basic_integrated_circuit")
     event.create("advanced_integrated_circuit")
     event.create("elite_integrated_circuit")
