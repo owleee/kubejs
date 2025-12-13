@@ -235,6 +235,8 @@ StartupEvents.registry("fluid", event => {
     fluid("molten_chrome_steel", "#CCCCCC")
     fluid("molten_mangalloy", "#FF33A8")
 
+    fluid("molten_constantan", "#FF6600")
+
     fluid("molten_high_brass", "#FFD966")
     fluid("molten_high_speed_steel", "#9999FF")
         .displayName("Molten High-Speed Steel");

@@ -7,11 +7,15 @@ const toTitleCase = str => {
     ).replace("_", "");
 }
 
+const reg = (e, type, id) => {
+    return e.create(`${id}_${type}`)
+        .tag(`forge:${type}s`)
+        .tag(`forge:${type}s/${id}`)
+        .texture(`kubejs:item/${type}/${id}`)
+}
+
 const ingot = (e, id) => {
-    return e.create(`${id}_ingot`)
-        .tag("forge:ingots")
-        .tag(`forge:ingots/${id}`)
-        .texture(`kubejs:item/ingot/${id}`)
+    return reg(e, "ingot", id)
 }
 
 const dust = (e, id) => {
@@ -355,6 +359,12 @@ StartupEvents.registry('item', event => {
     event.create("netherite_plating_kit").unstackable()
     event.create("incomplete_plating_kit", SEQUENCED_ASSEMBLY).unstackable()
     event.create("used_plating_kit").unstackable()
+
+    reg(event, "gem", "firestone").displayName("Firestone")
+    reg(event, "powder", "debris")
+    event.create("netherite_nanoparticles")
+    event.create("bonded_netherite_nanoparticles")
+    event.create("brittle_netherite_scrap")
 })
 
 ItemEvents.modification(event => {
