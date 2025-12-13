@@ -99,7 +99,7 @@ const ores = {
     },
     galena: {
         type: "sulfide",
-        material: "lead"
+        material: "lead",
     },
     // PLATINUM ORES //
     platinum: {

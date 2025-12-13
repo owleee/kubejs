@@ -1,4 +1,9 @@
 ServerEvents.recipes(event => {
+    event.custom(ballmill(
+        "minecraft:netherite_scrap",
+        "kubejs:debris_powder"
+    ))
+
     event.custom(arc_furnace(
         "kubejs:bonded_netherite_nanoparticles",
         ["#forge:ingots/purple_gold", "#forge:dusts/boron"],

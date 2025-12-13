@@ -222,6 +222,9 @@ StartupEvents.registry("fluid", event => {
     }
     fluid("iridescent_dye")
 
+    fluid("oleum", "#bd9346")
+    fluid("fluoroantimonic_acid", "#587591")
+
     fluid("molten_pipe_bronze", "#FFAA00")
     fluid("molten_brass", "#FFCC33")
 

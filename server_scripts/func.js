@@ -431,6 +431,16 @@ const crystalliser = (inputFluid, outputItem, outputFluid, energy, time) => {
 }
 const crystallizer = crystalliser // i cannot spell
 
+const ballmill = (inputItem, outputItem, energy, time) => {
+    return {
+        type: "immersivegeology:ballmill",
+        energy: energy || 64000,
+        input: I_item(inputItem),
+        result: I_item(outputItem),
+        time: time || 800
+    }
+}
+
 const centrifuge = (inputFluid, outputFluids, outputItem, energy, time) => {
     return {
         type: "immersivegeology:centrifuge",

@@ -24,6 +24,8 @@ StartupEvents.registry('item', event => {
     ingot(event, "metallic_hydrogen")
     plate(event, "metallic_hydrogen");
 
+    dust(event, "antimony")
+    ingot(event, "antimony")
 
     let _ = [
         "molybdenum",
