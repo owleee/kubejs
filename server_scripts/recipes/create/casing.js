@@ -12,4 +12,8 @@ ServerEvents.recipes(event => {
     // TANK
     event.remove({ id: "create:crafting/kinetics/fluid_tank" })
     event.custom(application("#forge:glass", "#forge:plates/pipe_bronze", "create:fluid_tank")).id("kubejs:application/fluid_tank");
+
+    event.remove("immersiveengineering:crafting/metal_barrel")
+    event.custom(application("create:fluid_tank", "#forge:plates/iron", "immersiveengineering:metal_barrel"))
+
 })

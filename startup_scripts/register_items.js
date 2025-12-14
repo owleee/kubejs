@@ -112,9 +112,12 @@ StartupEvents.registry('item', event => {
     dust(event, "copper_sulfate").displayName("Copper Compound")
     dust(event, "copper_hydroxide").displayName("Cupric Hydroxide")
 
+    dust(event, "magnesium_silicide")
+    dust(event, "stibnite")
+
     // GRAPHITE //
-    event.create("carbon_mixture")
-    event.create("carbon_compound")
+    event.create("carbon_mixture").displayName("Raw Carbonaceous Mixture")
+    event.create("carbon_compound").displayName("Carbonaceous Mixture")
     event.create("unsintered_graphite_rod")
     event.create("carborundum_compound")
     event.create("carborundum")
@@ -365,6 +368,8 @@ StartupEvents.registry('item', event => {
     event.create("netherite_nanoparticles")
     event.create("bonded_netherite_nanoparticles")
     event.create("brittle_netherite_scrap")
+
+    dust(event, "carbon").displayName("Carbon Black")
 })
 
 ItemEvents.modification(event => {

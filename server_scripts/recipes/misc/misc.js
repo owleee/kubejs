@@ -31,4 +31,6 @@ ServerEvents.recipes(event => {
         result: { item: "sophisticatedbackpacks:netherite_backpack" },
         template: { item: "kubejs:netherite_plating_kit" }
     }).id("kubejs:smithing/netherite_backpack")
+
+
 })

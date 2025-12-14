@@ -1,13 +1,28 @@
 const itemTypes = ['ingot', 'nugget', 'plate', 'dust', 'pile'];
+const basicItemTypes = ['ingot', 'nugget', 'dust', "pile"];
+
+let _;
 
 StartupEvents.registry('item', event => {
 
-    const materialSet = (materialName) => {
-        itemTypes.forEach(itemType => {
-            event.create(`${materialName}_${itemType}`)
-                .texture(`kubejs:item/${itemType}/${materialName}`)
-                .tag(`forge:${itemType}s`).tag(`forge:${itemType}s/${materialName}`)
+    const iterateItems = (materialName, itemList) => {
+        let itemBuilderList = []
+        itemList.forEach(itemType => {
+            itemBuilderList.push(
+                event.create(`${materialName}_${itemType}`)
+                    .texture(`kubejs:item/${itemType}/${materialName}`)
+                    .tag(`forge:${itemType}s`).tag(`forge:${itemType}s/${materialName}`)
+            )
         })
+        return itemBuilderList;
+    }
+
+    const basicMaterialSet = (materialName) => {
+        return iterateItems(materialName, basicItemTypes);
+    }
+
+    const materialSet = (materialName) => {
+        return iterateItems(materialName, itemTypes);
     }
 
     materialSet("chrome_steel")
@@ -18,16 +33,17 @@ StartupEvents.registry('item', event => {
     materialSet("nichrome")
     materialSet("kanthal")
 
-    ingot(event, "purple_gold")
-    dust(event, "purple_gold")
+    basicMaterialSet("purple_gold")
 
-    ingot(event, "metallic_hydrogen")
-    plate(event, "metallic_hydrogen");
+    basicMaterialSet("metallic_hydrogen")
 
-    dust(event, "antimony")
-    ingot(event, "antimony")
+    basicMaterialSet("antimony")
 
-    let _ = [
+    dust(event, "arsenic")
+    basicMaterialSet("gallium")
+    basicMaterialSet("indium")
+
+    _ = [
         "molybdenum",
         "nichrome",
         "kanthal",
@@ -49,5 +65,14 @@ StartupEvents.registry('item', event => {
         event.create(`${i}_dust`)
             .texture(`kubejs:item/dust/${i}`)
             .tag("forge:dusts").tag(`forge:dusts/${i}`)
+    })
+})
+
+ItemEvents.modification(event => {
+    event.modify("kubejs:indium_ingot", item => {
+        item.foodProperties = food => {
+            food.hunger(0);
+            food.saturation(0);
+        }
     })
 })

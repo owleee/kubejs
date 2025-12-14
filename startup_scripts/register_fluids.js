@@ -273,4 +273,8 @@ StartupEvents.registry("fluid", event => {
     fluid("purple_source", "#800080")
 
     fluid("glue", "#D4E2E5", TextureType.THICK)
+
+    event.create("gallium").noBucket().thickTexture("#CCCCFF");
+
+
 });
