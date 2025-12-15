@@ -377,6 +377,7 @@ StartupEvents.registry('item', event => {
     // sodium, potassium, or ammonium ions are added to precipitate 
     //jarosite (*Fe3(SO4)2(OH)6), or more simply "iron compound"
     dust(event, "iron_compound").displayName("Iron Compound")
+    event.create("indium_crystal")
 })
 
 ItemEvents.modification(event => {

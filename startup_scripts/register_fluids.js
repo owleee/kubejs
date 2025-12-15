@@ -282,4 +282,11 @@ StartupEvents.registry("fluid", event => {
     fluid("sphalerite_waste_complex", "#6B5461");
     fluid("cloudy_sphalerite_waste_complex", "#8B7182");
     fluid("pure_sphalerite_waste_complex", "#A890A3");
+    // TBP solvent + pure sphal waste -> cloudy InPO
+    fluid("cloudy_indium_phosphate", "#9C7FB0")
+    // cloudy InPO -(centrifuge)> pure InPO + zinc compound + indium waste
+    fluid("indium_phosphate", "#B090C0")
+    fluid("indium_waste_complex", "#5C4050")
+    // InPO + HCl -> indium chloride
+    fluid("indium_chloride", "#8F6FA0")
 });

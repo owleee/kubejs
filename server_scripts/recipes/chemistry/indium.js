@@ -1,7 +1,7 @@
 ServerEvents.recipes(event => {
     event.custom(chemical_reactor(
         ["6u #forge:sulfuric_acid"],
-        "#forge:powdered_slag/sphalerite",
+        "3x #forge:powdered_slag/sphalerite",
         "648mB kubejs:sphalerite_sulfate",
         "kubejs:indium_compound_dust",
     )).id("kubejs:chemical_reactor/leach_sphalerite")
@@ -37,6 +37,36 @@ ServerEvents.recipes(event => {
         "432mB kubejs:pure_sphalerite_waste_complex",
         "kubejs:iron_compound_dust",
     )).id("kubejs:chemical_reactor/jarosite_using_sodium")
+
+    event.custom(chemical_reactor([
+        "216mB kubejs:pure_sphalerite_waste_complex",
+        "2u #forge:phosphoric_acid",
+        "2u #forge:ethanol"
+    ], null,
+        "648mB kubejs:cloudy_indium_phosphate"
+    )).id("kubejs:chemical_reactor/cloudy_indium_phosphate")
+
+    event.custom(centrifuge(
+        "144mB kubejs:cloudy_indium_phosphate", [
+        "120mB kubejs:indium_phosphate",
+        "120mB kubejs:indium_waste_complex"
+    ], "immersivegeology:compound_dust_zinc",
+    )).id("kubejs:centrifuge/indium_phosphate")
+
+    event.custom(chemical_reactor([
+        "216mB kubejs:indium_phosphate",
+        "2u #forge:hydrochloric_acid"
+    ], null,
+        "432mB kubejs:indium_chloride"
+    )).id("kubejs:chemical_reactor/indium_chloride")
+
+    event.custom(crystalliser(
+        "144mB kubejs:indium_chloride",
+        "minecraft:diamond",
+        "120mB immersivegeology:fluid_hydrochloric_acid"
+    )).id("kubejs:crystalliser/indium_chloride")
+
+    // TODO: this indium yield is too high 
 
     // crystallise sphalerite
     event.custom(crystalliser(
