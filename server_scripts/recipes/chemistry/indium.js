@@ -62,7 +62,7 @@ ServerEvents.recipes(event => {
 
     event.custom(crystalliser(
         "144mB kubejs:indium_chloride",
-        "minecraft:diamond",
+        "kubejs:indium_crystal",
         "120mB immersivegeology:fluid_hydrochloric_acid"
     )).id("kubejs:crystalliser/indium_chloride")
 
