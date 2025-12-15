@@ -17,4 +17,18 @@ ServerEvents.recipes(event => {
     event.smelting("immersive_weathering:charred_log",
         "#minecraft:logs_that_burn"
     ).xp(0.15).id("kubejs:smelting/charcoal")
+
+    all_crushing(event, "#forge:charcoal", "kubejs:charcoal_dust")
+
+    event.custom(washing(
+        "#forge:dusts/charcoal", [
+        "60% kubejs:carbon_dust",
+        "60% supplementaries:ash"
+    ])).id("kubejs:splashing/charcoal_dust")
+
+    event.custom(gravity_separator(
+        "#forge:dusts/charcoal", [
+        "kubejs:carbon_dust",
+        "75% supplementaries:ash"
+    ], 200)).id("kubejs:gravity_separator/charcoal_dust")
 })

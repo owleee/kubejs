@@ -299,6 +299,7 @@ StartupEvents.registry('item', event => {
     // wafers
     event.create("wet_ish_silicon_wafer", SEQUENCED_ASSEMBLY)
         .texture("kubejs:item/silicon/wet_ish")
+        .displayName("Wet-ish Silicon Wafer")
     event.create("wet_silicon_wafer")
         .texture("kubejs:item/silicon/wet")
     event.create("passivated_silicon_wafer")
@@ -378,6 +379,8 @@ StartupEvents.registry('item', event => {
     //jarosite (*Fe3(SO4)2(OH)6), or more simply "iron compound"
     dust(event, "iron_compound").displayName("Iron Compound")
     event.create("indium_crystal")
+
+    dust(event, "charcoal")
 })
 
 ItemEvents.modification(event => {
@@ -395,5 +398,9 @@ ItemEvents.modification(event => {
 
     event.modify("kubejs:scanner", item => {
         item.maxDamage = 256
+    })
+
+    event.modify("kubejs:charcoal_dust", item => {
+        item.burnTime = 1600;
     })
 })

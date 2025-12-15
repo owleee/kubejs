@@ -219,6 +219,7 @@ const I_fluid = (ID, isInput) => {
  * @returns {object[]} An array of item or fluid objects for use in Immersive Engineering recipe JSONs.
  */
 const I_parseItemList = (itemList) => {
+    if (!itemList) return [];
     if (typeof itemList === "string") {
         itemList = [itemList];
     }
@@ -549,10 +550,29 @@ const refinery = (inputFluids, catalystItem, outputFluid, energy) => {
     return r;
 }
 
+const crusher = (inputItem, outputItems, energy) => {
+    let secondaries = []
+    if (outputItems.length > 1) {
+        secondaries = outputItems.slice(1).map(i => {
+            return {
+                output: { item: getItemID(i) },
+                chance: item(i).chance || 1.0
+            }
+        });
+    }
+    return {
+        type: "immersiveengineering:crusher",
+        energy: energy || 6000,
+        input: item(inputItem),
+        result: I_item(outputItems[0]),
+        secondaries: secondaries
+    }
+}
+
 /**
  * Recipe generator for Immersive Geology Gravity Separator.
  * @param {string} inputItem The item input in standard notation.
- * @param {string[2]} outputItems The item outputs in standard notation. First item is main output, second is byproduct with chance.
+ * @param {string[]} outputItems The item outputs in standard notation. First item is main output, second is byproduct with chance.
  * @param {number} processingTime The processing time of the recipe in ticks. Default is 100 t (5s).
  * @param {number} water The amount of water used in the process. Default is 100 mB.
  * @returns Immersive Geology Gravity Separator recipe object to be used in ServerEvents.recipes().
@@ -590,7 +610,8 @@ const all_crushing = (recipeEvent, inputItem, outputItem, processingTime) => {
         .id(`kubejs:milling/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}`);
     recipeEvent.custom(crushing(inputItem, outputItem, processingTime))
         .id(`kubejs:crushing/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}`);
-    // TODO: IE crushing
+    recipeEvent.custom(crusher(inputItem, [outputItem]))
+        .id(`kubejs:crusher/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}`);
 }
 
 ServerEvents.recipes(event => {

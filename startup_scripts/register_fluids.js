@@ -248,6 +248,12 @@ StartupEvents.registry("fluid", event => {
 
     fluid("molten_enriched_uranium", "#00FF00")
 
+    fluid("molten_kanthal", "#FF8800")
+    fluid("molten_nichrome", "#FF4444")
+    fluid("molten_indium", "#A8A8FF")
+    fluid("molten_gallium", "#CCCCFF")
+    fluid("molten_antimony", "#AAAAAA")
+
     fluid("refractory_ceramic", "#AA7744")
 
     fluid("copper_sulfate", "#3399FF")

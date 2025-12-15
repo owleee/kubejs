@@ -68,6 +68,17 @@ ServerEvents.recipes(event => {
 
     // TODO: this indium yield is too high 
 
+    event.custom(arc_furnace(
+        "kubejs:indium_crystal",
+        null,
+        "kubejs:indium_ingot",
+    )).id("kubejs:arc_smelting/indium_crystal")
+
+    event.custom(crusher(
+        "kubejs:indium_crystal",
+        ["kubejs:indium_dust"]
+    )).id("kubejs:crusher/indium_crystal")
+
     // crystallise sphalerite
     event.custom(crystalliser(
         "144mB kubejs:sphalerite_sulfate",

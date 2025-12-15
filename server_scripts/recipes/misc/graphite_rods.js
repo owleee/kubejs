@@ -5,7 +5,7 @@ ServerEvents.recipes(event => {
     event.custom({
         type: "create:filling",
         ingredients: [{
-            item: "immersiveengineering:dust_coke"
+            tag: "forge:dusts/carbon"
         }, {
             amount: 1000,
             fluid: "immersiveengineering:creosote",
