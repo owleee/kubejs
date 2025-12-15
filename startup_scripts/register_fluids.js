@@ -276,5 +276,10 @@ StartupEvents.registry("fluid", event => {
 
     event.create("gallium").noBucket().thickTexture("#CCCCFF");
 
-
+    // sphalerite slag powder + sulfuric acid -> sphalerite sulfate + waste dust
+    fluid("sphalerite_sulfate", "#7A6F90");
+    // waste dust + sulfuric acid -> sphalerite waste complex (indium rich, + zinc, copper, iron)
+    fluid("sphalerite_waste_complex", "#6B5461");
+    fluid("cloudy_sphalerite_waste_complex", "#8B7182");
+    fluid("pure_sphalerite_waste_complex", "#A890A3");
 });

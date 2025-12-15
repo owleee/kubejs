@@ -453,6 +453,16 @@ const centrifuge = (inputFluid, outputFluids, outputItem, energy, time) => {
     }
 }
 
+/**
+ * Helper function that generates an Immersive Geology Chemical Reactor recipe object.
+ * @param {*} inputFluids The fluid input string or array of strings in standard notation.
+ * @param {*} inputItem The item input string in standard notation.
+ * @param {*} outputFluid 
+ * @param {*} outputItem 
+ * @param {*} energy 
+ * @param {*} time 
+ * @returns 
+ */
 const chemical_reactor = (inputFluids, inputItem, outputFluid, outputItem, energy, time) => {
     let cr = {
         type: "immersivegeology:chemical_reactor",

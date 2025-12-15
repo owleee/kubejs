@@ -370,6 +370,13 @@ StartupEvents.registry('item', event => {
     event.create("brittle_netherite_scrap")
 
     dust(event, "carbon").displayName("Carbon Black")
+
+    // sphal leaching byproduct, mix with sulfuric acid for useful product
+    dust(event, "indium_compound").displayName("Indium Compound")
+    // iron is added to the waste solution to precipitate copper metal
+    // sodium, potassium, or ammonium ions are added to precipitate 
+    //jarosite (*Fe3(SO4)2(OH)6), or more simply "iron compound"
+    dust(event, "iron_compound").displayName("Iron Compound")
 })
 
 ItemEvents.modification(event => {
