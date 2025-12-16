@@ -98,7 +98,7 @@ StartupEvents.registry('item', event => {
     dust(event, "high_speed_steel").displayName("High-Speed Steel Dust")
 
     let _ = [
-        ""
+        "steel"
     ].forEach(metal => {
         event.create(`${metal}_monocrystal`)
         event.create(`${metal}_turbine`)
