@@ -2,12 +2,12 @@ ServerEvents.recipes(event => {
     event.replaceInput({ id: /create:crafting\/logistics\/andesite_.unnel/ }, "create:andesite_alloy", "#forge:ingots/steel")
     event.replaceInput({ id: /create:crafting\/logistics\/andesite_.unnel/ }, "minecraft:dried_kelp", "#kubejs:rubber_substitutes")
 
-    // replace andesite alloy with steel plates
+    // replace andesite alloy with structural plates
     event.replaceInput([
         { id: "createbigcannons:basin_foundry_lid" },
         { id: /create:crafting\/kinetics\/(nozzle|cart_assembler|.+_chassis|sticker)/ },
         { id: /create:crafting\/logistics\/.+_postbox/ }
-    ], "create:andesite_alloy", "#forge:plates/steel")
+    ], "create:andesite_alloy", "#kubejs:structural_plates")
 
     // replace andesite alloy with shaft
     event.replaceInput([

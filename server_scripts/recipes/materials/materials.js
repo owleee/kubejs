@@ -22,7 +22,7 @@ const setMaterial = (materialSet, itemType, itemID) => {
     materials[materialSet][itemType] = itemID;
 };
 
-const itemTypes = ['ingot', 'nugget', 'block', 'plate', 'dust', 'pile'];
+const itemTypes = ['ingot', 'nugget', 'plate', 'dust', 'pile'];
 
 const MODS = {
     MC: 'minecraft',
@@ -354,6 +354,10 @@ const materials = {
         molten: MODS.KJ,
         _melting_point: 1132,
         _flags: ["-pile"]
+    },
+    indium: {
+        _mod: MODS.KJ,
+        _flags: ["-plate"]
     }
 };
 

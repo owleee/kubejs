@@ -164,6 +164,11 @@ ServerEvents.tags('item', event => {
         /create:.+_window/
     ])
 
+    event.add("kubejs:structural_plates", [
+        "kubejs:dense_iron_plate",
+        "#forge:plates/steel",
+    ])
+
     event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_flint_dust"])
     event.add("forge:dusts/carbon", ["#forge:dusts/coal_coke"])
 

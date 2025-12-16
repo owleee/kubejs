@@ -42,11 +42,16 @@ StartupEvents.registry('item', event => {
     dust(event, "arsenic")
     basicMaterialSet("gallium")
     basicMaterialSet("indium")
+    basicMaterialSet("solder")
+
+    event.create("dense_iron_plate").texture("kubejs:item/plate/dense_iron")
+    event.create("incomplete_dense_iron_plate", SEQUENCED_ASSEMBLY).texture("kubejs:item/plate/incomplete_dense_iron")
 
     _ = [
         "molybdenum",
         "nichrome",
         "kanthal",
+        "solder"
     ].forEach(i => {
         event.create(`${i}_wire`)
             .texture(`kubejs:item/wire/${i}`)
