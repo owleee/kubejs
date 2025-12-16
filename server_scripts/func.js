@@ -87,7 +87,7 @@ const item = (ID, isFluid) => {
             if (arg[arg.length - 2] === "m") {
                 bucketAmount /= 1000;
             }
-        } else if (arg.endsWith("x") && !isFluid) {
+        } else if (/^\d+x$/.test(arg) && !isFluid) {
             // count argument
             count = parseInt(arg.slice(0, -1));
         } else if (arg.endsWith("u")) {
@@ -113,6 +113,7 @@ const item = (ID, isFluid) => {
 }
 
 const getItemID = (i) => {
+    if (!i) return "nothing"
     let id = item(i);
     return id.item || id.tag || id.fluid || id.fluidTag;
 }
@@ -393,6 +394,16 @@ const distillation = (inputFluid, outputFluids, heatRequirement, processingTime)
     }
 }
 
+const cooking = (inputItems, outputItem, cookTime, experience) => {
+    return {
+        type: "farmersdelight:cooking",
+        cookingtime: cookTime || 200,
+        experience: experience || 0.25,
+        ingredients: parseItemList(inputItems),
+        result: item(outputItem)
+    }
+}
+
 /**
  * Returns an Immersive Engineering Mixer recipe object to be used in ServerEvents.recipes(). 
  * @param {string} inputFluid Fluid input string in standard notation.
@@ -454,6 +465,37 @@ const centrifuge = (inputFluid, outputFluids, outputItem, energy, time) => {
     }
 }
 
+const RenderTypes = {
+    STEM: "stem",
+    CROP: "crop",
+    GENERIC: "generic",
+    HEMP: "hemp"
+}
+
+/**
+ * Helper function that generates an Immersive Engineering Garden Cloche recipe object.
+ * @param {*} inputItem Input seed item. Not consumed.
+ * @param {*} soilItem 
+ * @param {*} outputItems 
+ * @param {*} time 
+ * @param {*} renderType 
+ * @param {*} renderBlock 
+ * @returns 
+ */
+const cloche = (inputItem, soilItem, outputItems, time, renderType, renderBlock) => {
+    return {
+        type: "immersiveengineering:cloche",
+        input: item(inputItem),
+        render: {
+            type: renderType || RenderTypes.GENERIC,
+            block: renderBlock || "minecraft:wheat"
+        },
+        results: I_parseItemList(outputItems),
+        soil: item(soilItem),
+        time: time || 800
+    }
+}
+
 /**
  * Helper function that generates an Immersive Geology Chemical Reactor recipe object.
  * @param {*} inputFluids The fluid input string or array of strings in standard notation.
@@ -482,6 +524,36 @@ const chemical_reactor = (inputFluids, inputItem, outputFluid, outputItem, energ
     }
     return cr;
 }
+
+const lcr = chemical_reactor;
+
+const small_chemical_reactor = (inputFluids, inputItem, outputFluid, outputItem, energy, time, damage) => {
+    let cr = {
+        type: "immersivegeology:small_chemical_reactor",
+        damage_per_second: damage || 0.0,
+        energy: energy || 51200,
+        time: time || 200,
+        fluidInputA: I_fluid(inputFluids[0], true),
+        itemInput: I_item(inputItem),
+        fluidResult: I_fluid(outputFluid),
+        result: I_item(outputItem),
+    }
+    if (inputFluids.length > 1) {
+        cr.fluidInputB = I_fluid(inputFluids[1], true);
+    }
+
+    return cr;
+}
+
+const scr = small_chemical_reactor;
+
+const all_chemical_reactor = (recipeEvent, inputFluids, inputItem, outputFluid, outputItem, energy, time, damage) => {
+    recipeEvent.custom(chemical_reactor(inputFluids, inputItem, outputFluid, outputItem, energy, time))
+        .id(`kubejs:chemical_reactor/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}_and_${inputFluids.map(f => getItemID(f).path).join("_")}`);
+    recipeEvent.custom(small_chemical_reactor(inputFluids, inputItem, outputFluid, outputItem, energy, time, damage))
+        .id(`kubejs:small_chemical_reactor/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}_and_${inputFluids.map(f => getItemID(f).path).join("_")}`);
+}
+const all_cr = all_chemical_reactor;
 
 const arc_furnace = (input, additives, outputs, slag, energy, time) => {
     let r = {
@@ -612,6 +684,13 @@ const all_crushing = (recipeEvent, inputItem, outputItem, processingTime) => {
         .id(`kubejs:crushing/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}`);
     recipeEvent.custom(crusher(inputItem, [outputItem]))
         .id(`kubejs:crusher/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}`);
+}
+
+const all_filling = (recipeEvent, inputItem, inputFluid, outputItems) => {
+    recipeEvent.custom(filling(inputItem, inputFluid, outputItems))
+        .id(`kubejs:filling/${getItemID(outputItems).path}_from_${getItemID(inputItem).path}_and_${getItemID(inputFluid).path}`);
+    recipeEvent.custom(bottling_machine(inputItem, inputFluid, outputItems))
+        .id(`kubejs:bottling_machine/${getItemID(outputItems).path}_from_${getItemID(inputItem).path}_and_${getItemID(inputFluid).path}`);
 }
 
 ServerEvents.recipes(event => {

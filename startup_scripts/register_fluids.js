@@ -83,6 +83,7 @@ StartupEvents.registry("fluid", event => {
         .tag("forge:chlorine")
     fluid("fluorine", 0x00FFFF)
     fluid("radon", 0xA0FCAC)
+    fluid("nitrogen", "#AAAAFF")
 
     // ROCKET FUELS //
     fluid("tier_1_rocket_fuel", 0xFF0000)

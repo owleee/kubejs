@@ -169,6 +169,16 @@ ServerEvents.tags('item', event => {
         "#forge:plates/steel",
     ])
 
+    event.add("forge:treated_wood", "kubejs:treated_fiberboard")
+
+    event.add("quark:blossom_saplings", [
+        "quark:blue_blossom_sapling",
+        "quark:lavender_blossom_sapling",
+        "quark:orange_blossom_sapling",
+        "quark:yellow_blossom_sapling",
+        "quark:red_blossom_sapling"
+    ])
+
     event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_flint_dust"])
     event.add("forge:dusts/carbon", ["#forge:dusts/coal_coke"])
 

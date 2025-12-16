@@ -40,6 +40,8 @@ StartupEvents.registry('block', event => {
 
     event.create("copper_fins").soundType("copper");
 
+    event.create("turbine_casing").soundType("metal");
+
     [
         "lunar",
         "martian",
@@ -56,6 +58,8 @@ StartupEvents.registry('block', event => {
 
     event.create("quartz_glass").defaultCutout().glassSoundType();
     event.create("borosilicate_glass").defaultCutout().glassSoundType();
+
+    event.create("treated_fiberboard").soundType("wood");
 
     [
         "minecraft:acacia", // latex

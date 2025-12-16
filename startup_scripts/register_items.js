@@ -83,6 +83,7 @@ StartupEvents.registry('item', event => {
 
     event.create("ingot_mold")
     event.create("ball_mold")
+    event.create("block_mold")
 
     event.create("wing")
 

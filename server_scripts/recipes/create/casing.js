@@ -9,6 +9,16 @@ ServerEvents.recipes(event => {
 
     event.custom(application("kubejs:sealed_casing", "#forge:plates/pipe_bronze", Casing.COPPER)).id("kubejs:application/bronze_casing");
 
+    // BRASS CASING //
+    event.remove({ id: /create:item_application\/brass_casing_from_.*/ })
+
+    all_filling(
+        event,
+        "kubejs:treated_fiberboard",
+        "1i #forge:brass",
+        Casing.BRASS
+    )
+
     // TANK
     event.remove({ id: "create:crafting/kinetics/fluid_tank" })
     event.custom(application("#forge:glass", "#forge:plates/pipe_bronze", "create:fluid_tank")).id("kubejs:application/fluid_tank");
