@@ -97,6 +97,13 @@ StartupEvents.registry('item', event => {
 
     dust(event, "high_speed_steel").displayName("High-Speed Steel Dust")
 
+    let _ = [
+        ""
+    ].forEach(metal => {
+        event.create(`${metal}_monocrystal`)
+        event.create(`${metal}_turbine`)
+    })
+
     // FABRIC //
     event.create("hemp_yarn") // -> industrial fabric
     event.create("string_yarn")

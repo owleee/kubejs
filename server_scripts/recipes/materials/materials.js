@@ -286,7 +286,7 @@ const materials = {
         ingot: MODS.KJ,
         pile: MODS.KJ,
         molten: MODS.KJ,
-        _melting_point: 1414,
+        _melting_point: 1514,
         _flags: ["-auto"]
     },
     raw_silicon: {
@@ -295,7 +295,7 @@ const materials = {
         ingot: MODS.KJ,
         pile: MODS.KJ,
         molten: MODS.KJ,
-        _melting_point: 1414,
+        _melting_point: 1314,
         _flags: ["-auto"]
     },
     silica: {
