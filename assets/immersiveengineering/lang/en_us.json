@@ -20,5 +20,6 @@
     "item.immersiveengineering.dust_electrum": "Electrum Dust",
     "item.immersiveengineering.dust_steel": "Steel Dust",
     "item.immersiveengineering.dust_iron": "Iron Dust",
-    "item.immersiveengineering.dust_gold": "Gold Dust"
+    "item.immersiveengineering.dust_gold": "Gold Dust",
+    "fluid_type.immersiveengineering.biodiesel": "Raw Biodiesel"
 }

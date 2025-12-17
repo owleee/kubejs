@@ -143,6 +143,11 @@ StartupEvents.registry('item', event => {
     event.create("neodymium_catalyst")
     event.create("used_neodymium_catalyst")
 
+    dust(event, "spa").displayName("SPA Dust").tag("forge:dusts/phosphoric_acid")
+    dust(event, "mnt").displayName("MNT Dust").tag("forge:dusts/mononitrotoluene")
+    dust(event, "dnt").displayName("DNT Dust").tag("forge:dusts/dinitrotoluene")
+    dust(event, "tnt").displayName("TNT Dust").tag("forge:dusts/trinitrotoluene")
+
     // BIOPROCESSING //
 
     event.create("corn_flour")

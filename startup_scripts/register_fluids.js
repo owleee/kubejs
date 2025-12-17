@@ -296,4 +296,14 @@ StartupEvents.registry("fluid", event => {
     fluid("indium_waste_complex", "#5C4050")
     // InPO + HCl -> indium chloride
     fluid("indium_chloride", "#8F6FA0")
+
+    fluid("nitration_mixture", "#FFA500")
+    fluid("dilute_nitration_mixture", "#FFCC80")
+    fluid("toluene", "#FFFF00")
+    fluid("benzene", "#FFFFFF")
+
+    fluid("molten_tnt").displayName("Molten TNT")
+
+    // immersive engineering biodiesel contains glycerol which can be distilled or centrifuged out
+    fluid("pure_biodiesel", "#FFFF99").displayName("Biodiesel")
 });
