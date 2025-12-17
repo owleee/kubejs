@@ -25,4 +25,6 @@ This pack is still very much in development and not fit for any kind of release.
 - **Alex's Caves** takes us underground to explore six beautiful, feature-packed new cave biomes.
 - **Ars Nouveau** allows players to craft their own spells, create magical artifacts, perform rituals, and much more. 
 - **Farmer's Delight** allows you to take a break from the demands of the factory and cook delicious food in a beautifully decorated kitchen.
+- **Immersive Additions/KubeJS** is the glue that holds the pack together, adding hundreds of custom items and recipes.
+    - \[Coming Soon] is a custom in-house mod implementing a couple of new multiblocks and some other features KubeJS cannot. 
 - And many more.
