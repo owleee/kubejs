@@ -32,3 +32,17 @@ ServerEvents.recipes(event => {
         template: { item: "kubejs:netherite_plating_kit" }
     }).id("kubejs:smithing/netherite_backpack")
 })
+
+LootJS.modifiers((event) => {
+    [
+        "minecraft:ice",
+        "minecraft:packed_ice",
+        "minecraft:blue_ice",
+    ].forEach(ice => {
+        event.addBlockLootModifier(ice)
+            .matchMainHand("#forge:saw")
+            .removeLoot(Ingredient.all)
+            .addLoot(ice);
+    })
+
+})

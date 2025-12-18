@@ -1,5 +1,6 @@
 ItemEvents.tooltip(tooltip => {
     tooltip.add("#forge:saw", 'Cuts logs into planks and planks into sticks');
+    tooltip.add("#forge:saw", 'Can harvest ice blocks');
 
     [
         "64",
@@ -18,4 +19,10 @@ ItemEvents.tooltip(tooltip => {
     tooltip.add("kubejs:nothing", "Placeholder item used in certain picky recipes. Does nothing. Trash immediately.")
 
     tooltip.add("kubejs:oxygen_candle", "Burns to release oxygen. Refills space suit oxygen tanks.")
+
+    tooltip.add("kubejs:mnt_dust", "Mononitrotoluene")
+    tooltip.add("kubejs:dnt_dust", "Dinitrotoluene")
+    tooltip.add("kubejs:raw_tnt_dust", "Trinitrotoluene")
+    tooltip.add("kubejs:tnt_dust", "Trinitrotoluene")
+    tooltip.add("kubejs:spa_dust", "Solid Phosphoric Acid")
 })

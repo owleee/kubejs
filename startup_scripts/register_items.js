@@ -146,7 +146,10 @@ StartupEvents.registry('item', event => {
     dust(event, "spa").displayName("SPA Dust").tag("forge:dusts/phosphoric_acid")
     dust(event, "mnt").displayName("MNT Dust").tag("forge:dusts/mononitrotoluene")
     dust(event, "dnt").displayName("DNT Dust").tag("forge:dusts/dinitrotoluene")
+    dust(event, "raw_tnt").displayName("Crude TNT Dust").tag("forge:dusts/trinitrotoluene")
     dust(event, "tnt").displayName("TNT Dust").tag("forge:dusts/trinitrotoluene")
+
+    event.create("molecular_sieve")
 
     event.create("microplastics")
 

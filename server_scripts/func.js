@@ -550,6 +550,7 @@ const scr = small_chemical_reactor;
 const all_chemical_reactor = (recipeEvent, inputFluids, inputItem, outputFluid, outputItem, energy, time, damage) => {
     recipeEvent.custom(chemical_reactor(inputFluids, inputItem, outputFluid, outputItem, energy, time))
         .id(`kubejs:chemical_reactor/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}_and_${inputFluids.map(f => getItemID(f).path).join("_")}`);
+    if (inputFluids.length > 2) return;
     recipeEvent.custom(small_chemical_reactor(inputFluids, inputItem, outputFluid, outputItem, energy, time, damage))
         .id(`kubejs:small_chemical_reactor/${getItemID(outputItem).path}_from_${getItemID(inputItem).path}_and_${inputFluids.map(f => getItemID(f).path).join("_")}`);
 }
@@ -569,6 +570,18 @@ const arc_furnace = (input, additives, outputs, slag, energy, time) => {
 
     return r;
 }
+
+const reverberation_furnace = (inputItem, outputItem, outputFluidAmount, time) => {
+    return {
+        type: "immersivegeology:reverberation_furnace",
+        input: item(inputItem),
+        result: item(outputItem),
+        time: time || 800,
+        waste: outputFluidAmount || 0
+    }
+}
+
+const roasting = reverberation_furnace
 
 const KilnHeat = {
     LV: 30,
