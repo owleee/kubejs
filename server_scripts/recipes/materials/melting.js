@@ -9,7 +9,7 @@ ServerEvents.recipes(event => {
     })
 
     for (const [materialName, materialSet] of Object.entries(materials)) {
-        if (!materialSet.molten || !materialSet.ingot) continue;
+        if (!materialSet.molten) continue;
 
         let _ = [
             Heat.HEATED,
@@ -20,12 +20,21 @@ ServerEvents.recipes(event => {
             let id = (heatLevel == Heat.SUPER) ? "_superheated" : "";
 
             // ingot
-            event.custom(bulk_vat(
+            if (materialSet.ingot) event.custom(bulk_vat(
                 `#forge:ingots/${materialName}`,
                 `1i ${materialSet.molten}`,
                 heatLevel,
                 ((materialSet._melting_point / 10) || 100) * multiplier
             )).id(`kubejs:vat_melting/${materialName}${id}`);
+
+            // dust
+            if (materialSet.dust && materialSet._flags.includes("melt_dust")) event.custom(bulk_vat(
+                `#forge:dusts/${materialName}`,
+                `1i ${materialSet.molten}`,
+                heatLevel,
+                ((materialSet._melting_point / 10) || 100) * multiplier
+            )).id(`kubejs:vat_melting/${materialName}_dust${id}`);
+
 
             // block
             if (materialSet.block) event.custom(bulk_vat(

@@ -358,6 +358,13 @@ const materials = {
     indium: {
         _mod: MODS.KJ,
         _flags: ["-plate"]
+    },
+    tnt: {
+        _mod: MODS.KJ,
+        dust: MODS.KJ,
+        molten: MODS.KJ,
+        _melting_point: 80,
+        _flags: ["-auto", "melt_dust"]
     }
 };
 
@@ -458,7 +465,6 @@ ServerEvents.tags('item', event => {
         }
     }
 })
-
 
 //tell(materials.graphite)
 //tell(materials.gold.plate)

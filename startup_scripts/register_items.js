@@ -148,6 +148,8 @@ StartupEvents.registry('item', event => {
     dust(event, "dnt").displayName("DNT Dust").tag("forge:dusts/dinitrotoluene")
     dust(event, "tnt").displayName("TNT Dust").tag("forge:dusts/trinitrotoluene")
 
+    event.create("microplastics")
+
     // BIOPROCESSING //
 
     event.create("corn_flour")

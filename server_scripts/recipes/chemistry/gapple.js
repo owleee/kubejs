@@ -80,15 +80,8 @@ ServerEvents.recipes(event => {
     all_cr(event,
         [`8i #forge:clean_hydrochloric_acid_copper`],
         "miners_delight:cave_carrot",
-        `${120 * 8}mB immersivegeology:fluid_aqua_regia`,
+        `${120 * 8}mB immersivegeology:fluid_hydrochloric_acid`,
         "miners_delight:copper_carrot",
         null, null, 1
     )
-
-    event.custom(scr(
-        ["minecraft:water"],
-        "miners_delight:copper_carrot",
-        "immersiveengineering:creosote",
-        "minecraft:diamond"
-    ))
 })

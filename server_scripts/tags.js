@@ -179,6 +179,13 @@ ServerEvents.tags('item', event => {
         "quark:red_blossom_sapling"
     ])
 
+    event.add("kubejs:metal_oxide_catalysts", [
+        "#forge:metal_oxide/zinc",
+        "#forge:metal_oxide/calcium",
+        "#forge:metal_oxide/magnesium",
+        "#forge:metal_oxide/titanium", // TODO: improve yield for expensive catalyst?
+    ])
+
     event.add("forge:dusts/silicon_dioxide", ["#forge:dusts/silica", "#forge:dusts/quartz", "kubejs:cooked_flint_dust"])
     event.add("forge:dusts/carbon", ["#forge:dusts/coal_coke"])
 

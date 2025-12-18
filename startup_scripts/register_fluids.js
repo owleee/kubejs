@@ -302,7 +302,7 @@ StartupEvents.registry("fluid", event => {
     fluid("toluene", "#FFFF00")
     fluid("benzene", "#FFFFFF")
 
-    fluid("molten_tnt").displayName("Molten TNT")
+    fluid("molten_tnt", "#B11527").displayName("Molten TNT")
 
     // immersive engineering biodiesel contains glycerol which can be distilled or centrifuged out
     fluid("pure_biodiesel", "#FFFF99").displayName("Biodiesel")
